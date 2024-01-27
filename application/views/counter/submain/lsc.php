@@ -29,8 +29,8 @@
                     </div>
                     <div class="ps-3">
                       <h6><?php 
-                        if (!is_null($TGS['total_sales'])) {
-                          echo (number_format(($TGS['total_sales']+$TDS['total_discount_sales']), 2, '.', ',')) ;
+                        if (!is_null($TotalGeneralSales['received_amount'])) {
+                          echo (number_format(($TotalGeneralSales['received_amount'])+($TotalDiscountSales['received_amount']), 2, '.', ',')) ;
                         }else{
                           echo '00.00';
                         };
@@ -73,11 +73,11 @@
                     <div class="ps-3">
                       <h6>
                         <?php 
-                          if (!is_null($TGSales['total_sales'])) {
-                            print_r(number_format($TGSales['total_sales'], 2, '.', ','));
-                          }else{
-                            echo '00.00';
-                          };
+                         if (!is_null($TotalGeneralSales['received_amount'])) {
+                          echo (number_format(($TotalGeneralSales['received_amount']), 2, '.', ',')) ;
+                        }else{
+                          echo '00.00';
+                        };
                         ?>
                       </h6>
                       <span class="text-success small pt-1 fw-bold">BDT</span> 
@@ -116,8 +116,8 @@
                     </div>
                     <div class="ps-3">
                       <h6><?php 
-                        if (!is_null($TDSales['total_discount_sales'])) {
-                          print_r(number_format($TDSales['total_discount_sales'], 2, '.', ',')) ;
+                        if (!is_null($TotalDiscountSales['received_amount'])) {
+                          print_r(number_format($TotalDiscountSales['received_amount'], 2, '.', ',')) ;
                         }else{
                           echo '00.00';
                         };
@@ -163,7 +163,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <?php foreach ($GSales as $key => $value): ?>
+                      <?php foreach ($GeneralSalesTable as $key => $value): ?>
                       <tr>
                         <th scope="row"><a href="<?php echo base_url('index.php/reprint/'.$value['invoice_number']);?>" target="_blank"><?php echo $value['invoice_number'] ; ?></a></th>
                         <td><?php echo $value['customer_name']; ?></td>
@@ -206,7 +206,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <?php foreach ($DSales as $key => $value): ?>
+                      <?php foreach ($DiscountSalesTable as $key => $value): ?>
                       <tr>
                         <th scope="row"><a href="<?php echo base_url('index.php/dreprint/'.$value['invoice_number']);?>" target="_blank"><?php echo $value['invoice_number'] ; ?></a></th>
                         <td><?php echo $value['customer_name']; ?></td>

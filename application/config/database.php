@@ -36,7 +36,7 @@ if ($domain === 'localhost' || $ip === '127.0.0.1') {
 	$db['default'] = array(
 		'dsn'	=> '',
 		'hostname' => 'localhost',
-		'username' => '',	
+		'username' => 'root',	
 		'password' => '',	
 		'database' => '',	
 		'dbdriver' => 'mysqli',

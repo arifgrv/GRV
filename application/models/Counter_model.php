@@ -12,8 +12,10 @@ class Counter_model extends CI_Model {
             return $query;
 
         }else{
-             $query = $this->db->get('accounts')->result_array();
-             return $query;
+            $this->db->where('sales_type', 1);
+            $this->db->order_by('invoice_number', 'DESC');
+            $query = $this->db->get('accounts')->result_array();
+            return $query;
         }
 	}
   
@@ -28,11 +30,12 @@ class Counter_model extends CI_Model {
             return $query;
 
         }else{
-             $query = $this->db->get('accounts')->result_array();
-             return $query;
+            $this->db->where('sales_type', 2);
+            $this->db->order_by('invoice_number', 'DESC');
+            $query = $this->db->get('accounts')->result_array();
+            return $query;
         }
     }
-
 
 }
 ?>

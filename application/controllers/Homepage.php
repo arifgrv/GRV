@@ -8,12 +8,12 @@ class Homepage extends CI_Controller {
 	    date_default_timezone_set('Asia/Dhaka');
         $this->load->library('form_validation');
         $this->load->library('session');
-        $this->load->model('Login_model');
+        $this->load->model('home_model');
     }
 
     public function index()
     {
-        $data['homepage']=$this->Login_model->homepage();
+        $data['homepage']=$this->home_model->homepage();
         $this->load->view('homepage', $data);
     }
 

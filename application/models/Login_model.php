@@ -2,11 +2,11 @@
 class Login_model extends CI_Model {
 
     public function LgoCheck($e,$p){
-        $query = $this->db->get_where('users', 
+        $query = $this->db->get_where('customer', 
             array(
                 'email'=> $e,
                 'password'=> $p,
-                'accstatus'=> 1,
+                'status'=> 1,
             )
         );
         
@@ -20,7 +20,7 @@ class Login_model extends CI_Model {
 
     public function RegSave($data){
 
-        $this->db->insert('users', $data);
+        $this->db->insert('customer', $data);
         return $this->db->insert_id(); 
     }
 

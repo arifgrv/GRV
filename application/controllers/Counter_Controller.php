@@ -8,6 +8,7 @@ class Counter_Controller extends CI_Controller {
 	    date_default_timezone_set('Asia/Dhaka');
         $this->load->library('form_validation');
         $this->load->library('session');
+        $this->is_logged_in();
     }
 
 	public function index()
@@ -15,6 +16,11 @@ class Counter_Controller extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
+	public function is_logged_in() {
+        if ($this->session->userdata('user_email') == null) {
+        	redirect(base_url('index.php/login')); 
+        }
+    }
 	
 
 }

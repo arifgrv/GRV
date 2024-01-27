@@ -21,6 +21,12 @@ class Counter_Controller extends CI_Controller {
         	redirect(base_url('index.php/login')); 
         }
     }
-	
+
+	public function is_logged_in() {
+        if ($this->session->userdata('user_email') == null) {
+        	redirect(base_url('index.php/login')); 
+        }
+    }
+
 
 }

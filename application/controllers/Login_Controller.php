@@ -64,18 +64,15 @@ class Login_Controller extends CI_Controller {
     }
 
 	public function admindashboard(){
-		$this->is_logged_in();
-		$this->load->view('admin/admin_dashboard');
+		redirect(base_url('index.php/admin')); 
 	}
 
 	public function counterdashboard(){
-        $this->is_logged_in();
-		$this->load->view('counter/admin_dashboard');
+        redirect(base_url('index.php/counter')); 
 	}
 
 	public function userdashboard(){
-		$this->is_logged_in();
-		$this->load->view('user/admin_dashboard');
+		redirect(base_url('index.php/customer')); 
 	}
 
 

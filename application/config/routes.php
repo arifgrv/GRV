@@ -21,8 +21,12 @@ $route['admin'] = 'Admin_Controller/index';
 
 //Counter Controller
 $route['counter'] = 'Counter_Controller/index';
+$route['BookTicket/(:any)'] = 'Counter_Controller/ticket_Search/$1';
+$route['SitPlan'] = 'Counter_Controller/SitPlan';
 
 
 //Customer Controller
 $route['customer'] = 'Customer_Controller/index';
+
+
 

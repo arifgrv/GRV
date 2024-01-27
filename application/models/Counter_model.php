@@ -36,6 +36,53 @@ class Counter_model extends CI_Model {
             return $query;
         }
     }
+    
+    public function moviename($id=null){
+        if ($id) {
+            $this->db->select('MovieName');
+            $this->db->from('moviename');
+            $this->db->where('id', $id);
+            $query  = $this->db->get()->row_array();
+            return $query;
+        }else{
+           $query = $this->db->get_where('moviename', array('Status'=> '1'))->result_array();
+            return $query; 
+        }
+        
+    }
+
+    public function showtime($id=null){
+        if ($id) {
+            $this->db->select('ShowTime');
+            $this->db->from('showtime');
+            $this->db->where('id', $id);
+            $query  = $this->db->get()->row_array();
+            return $query;
+        }else{
+            $query = $this->db->get('showtime')->result_array();
+            return $query;
+        }
+        
+    }
+
+    public function checkReservations($sitNumbers, $reserveDate, $showtime, $movieName)
+    {
+        $this->db->select('sit_number');
+        $this->db->from('reservation');
+        $this->db->where_in('sit_number', $sitNumbers);
+        $this->db->where('reserve_date', $reserveDate);
+        $this->db->where('show_time', $showtime);
+        $this->db->where('movie_name', $movieName);
+
+        $query  = $this->db->get()->row_array();
+
+        if ($query) {
+            return $query;
+        }else{
+            return null;
+        }
+    }
+
 
 }
 ?>

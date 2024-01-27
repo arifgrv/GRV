@@ -8,6 +8,7 @@ class Login_Controller extends CI_Controller {
 	    date_default_timezone_set('Asia/Dhaka');
         $this->load->library('form_validation');
         $this->load->library('session');
+        $this->load->library('seat_reservation');
         $this->load->model('login_model');
     }
 

@@ -16,12 +16,12 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="<?php echo base_url('index.php/BookTicket'); ?>" target="_blank">
+            <a href="<?php echo base_url('index.php/BookTicket/1'); ?>" target="_blank">
               <i class="bi bi-circle"></i><span>General Customer</span>
             </a>
           </li>
           <li>
-            <a href="<?php echo base_url('index.php/Discount'); ?>" target="_blank">
+            <a href="<?php echo base_url('index.php/BookTicket/2'); ?>" target="_blank">
               <i class="bi bi-circle"></i><span>Discount Customer</span>
             </a>
           </li>

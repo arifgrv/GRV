@@ -7,7 +7,7 @@ class Seat_reservation {
 
     public function __construct() {
         $this->CI =& get_instance();
-        $this->CI->load->model('Login_model'); // Load your model
+        $this->CI->load->model('Counter_model'); // Load your model
     }
 
     public function generateSeatCheckbox($showDate, $showTime, $movieName, $SitStartFrom, $totalSit, $sitNum) {
@@ -15,7 +15,7 @@ class Seat_reservation {
 
         for ($i = $SitStartFrom; $i <= $totalSit; $i++) {
             $sitNumbers = $sitNum . $i;
-            $reserveSit = $this->CI->Login_model->checkReservations($sitNumbers, $showDate, $showTime, $movieName);
+            $reserveSit = $this->CI->Counter_model->checkReservations($sitNumbers, $showDate, $showTime, $movieName);
 
             $output .= '<div class="col">';
             if (!empty($reserveSit)) {

@@ -18,9 +18,8 @@ class Counter_Controller extends CI_Controller {
         $today=date('Y-m-d');
         $data['TotalGeneralSales']=$this->Counter_model->TotalGeneralSales($today);
         $data['TotalDiscountSales']=$this->Counter_model->TotalDiscountSales($today);
-        $data['GeneralSalesTable']=$this->Counter_model->TotalGeneralSales();
-        $data['DiscountSalesTable']=$this->Counter_model->TotalDiscountSales();
-
+        $data['AccountsReport']=$this->Counter_model->AccountsReport();
+       
         $this->load->view('counter/dashboard',$data);
 	}
 

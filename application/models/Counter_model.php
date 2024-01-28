@@ -7,12 +7,12 @@ class Counter_model extends CI_Model {
             $this->db->select_sum('received_amount', 'received_amount'); 
             $this->db->from('accounts');
             $this->db->where('payment_date', $today);
-            $this->db->where('sales_type', 1);
+            $this->db->where('voucher_code=', '');
             $query = $this->db->get()->row_array(); 
             return $query;
 
         }else{
-            $this->db->where('sales_type', 1);
+            $this->db->where('voucher_code =', '');
             $this->db->order_by('invoice_number', 'DESC');
             $query = $this->db->get('accounts')->result_array();
             return $query;
@@ -25,12 +25,12 @@ class Counter_model extends CI_Model {
             $this->db->select_sum('received_amount', 'received_amount'); 
             $this->db->from('accounts');
             $this->db->where('payment_date', $today);
-            $this->db->where('sales_type', 2);
+            $this->db->where('voucher_code !=', '');
             $query = $this->db->get()->row_array(); 
             return $query;
 
         }else{
-            $this->db->where('sales_type', 2);
+            $this->db->where('voucher_code !=', '');
             $this->db->order_by('invoice_number', 'DESC');
             $query = $this->db->get('accounts')->result_array();
             return $query;
@@ -92,6 +92,25 @@ class Counter_model extends CI_Model {
             return $query->result_array();
         } else {
             return array();
+        }
+    }
+
+    public function AccountsReport() {
+        $query = $this->db->select('acc.invoice_number, cus.full_name AS customer_name, cus.mobile AS customer_mobile, res.movie_name, res.show_time,res.reserve_date,res.booking_date')
+                      ->from('accounts AS acc')
+                      ->join('reservation AS res', 'acc.invoice_number = res.invoice_number')
+                      ->join('customer AS cus', 'res.customer_id = cus.customer_id')
+                      ->where('acc.invoice_number', '175')
+                      ->get();
+
+        // Check if the query was successful
+        if ($query) {
+            // Return the result as an array
+            return $query->result_array();
+        } else {
+            // Handle the error, e.g., log or display an error message
+            //log_message('error', 'AccountsReport query failed.');
+            return false;
         }
     }
 

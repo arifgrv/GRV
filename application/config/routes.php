@@ -23,6 +23,7 @@ $route['admin'] = 'Admin_Controller/index';
 $route['counter'] = 'Counter_Controller/index';
 $route['BookTicket/(:any)'] = 'Counter_Controller/ticket_Search/$1';
 $route['SitPlan'] = 'Counter_Controller/SitPlan';
+$route['Accounts'] = 'Counter_Controller/AccountsReport';
 
 
 //Customer Controller

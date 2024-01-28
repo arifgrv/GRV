@@ -97,5 +97,22 @@ class Counter_Controller extends CI_Controller {
         }
     }
 
+    public function AccountsReport()
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+            $fromDate=date($_POST['Date_From']);
+            $toDate=date($_POST['Date_TO']);
+            $data['accReport']=$this->Counter_model->Accounts_data($fromDate, $toDate);
+        }else{
+            date_default_timezone_set('Asia/Dhaka');
+            $fromDate=date('Y-m-d');
+            $toDate=date('Y-m-d');
+            $data['accReport']=$this->Counter_model->Accounts_data($fromDate, $toDate);
+        }
+            $this->load->view('counter/accounts',$data);
+    }
+
+
 
 }

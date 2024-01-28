@@ -83,6 +83,18 @@ class Counter_model extends CI_Model {
         }
     }
 
+    public function Accounts_data($fromDate, $toDate) {
+        $this->db->where('payment_date >=', $fromDate);
+        $this->db->where('payment_date <=', $toDate);
+        $query = $this->db->get('accounts');
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        } else {
+            return array();
+        }
+    }
+
 
 }
 ?>

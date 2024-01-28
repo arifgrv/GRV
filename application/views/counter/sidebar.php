@@ -34,13 +34,13 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="<?php echo base_url('index.php/accountsreport'); ?>"  target="_blank">
-              <i class="bi bi-circle"></i><span>General Sales</span>
+            <a href="<?php echo base_url('index.php/Accounts'); ?>"  target="_blank">
+              <i class="bi bi-circle"></i><span>Current Date</span>
             </a>
           </li>
           <li>
-            <a href="<?php echo base_url('index.php/AccountsDReport'); ?>"  target="_blank">
-              <i class="bi bi-circle"></i><span>Discount Sales</span>
+            <a href="<?php echo base_url('index.php/Accounts'); ?>"  target="_blank">
+              <i class="bi bi-circle"></i><span>Ledger</span>
             </a>
           </li>
         </ul>

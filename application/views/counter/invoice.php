@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php echo "<pre>"; ?>
+<?php print_r($reservation); ?>
+<?php echo '<br/>customer' ;?>
+<?php print_r($customer); ?>
+<?php echo '<br/>Accounts'; ?>
+<?php print_r($accounts); ?>
+<?php echo "</pre>"; ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,9 +78,9 @@
     <div class="invoice">
         <div class="header">GRV Cineplex</div>
         <p>BIN: 004214822-1101<br/>232, Kazihata Rajshahi, Bangladesh.</p>
-        <div class="item"><b>Invoice #: <?php echo $invoice_record[0]->invoice_number; ?></b></div>
+        <div class="item"><b>Invoice #: <?php echo $invoice_number; ?></b></div>
         <div class="item">Booking Date: <?php 
-            $timestamp = strtotime($invoice_record[0]->currentdate);
+            $timestamp = strtotime($booking_date);
             $formattedDate = date('d-m-Y', $timestamp);
             echo $formattedDate;
         ?></div>
@@ -88,15 +94,15 @@
             <table>
                 <tr>
                     <td>Name:</td>
-                    <td><?php echo $invoice_record[0]->customer_name; ?></td>
+                    <td><?php echo $customer['full_name']; ?></td>
                 </tr>
                 <tr>
                     <td>Mobile:</td>
-                    <td><?php echo $invoice_record[0]->customer_mobile; ?></td>
+                    <td><?php echo $customer['mobile']; ?></td>
                 </tr>
                 <tr>
                     <td>Reservation:</td>
-                    <td><?php echo $invoice_record[0]->reserve_date.' - '.$invoice_record[0]->movie_name.' - '.$invoice_record[0]->show_time; ?></td>
+                    <td><?php echo $reserve_date.' - '.$movie_name.' - '.$show_time; ?></td>
                 </tr>
             </table>
         </div>

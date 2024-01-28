@@ -89,7 +89,12 @@ class SavaInformation_Controller extends CI_Controller {
                     );
                     $reservationdb=$this->savainformation_model->reservation($reservation);
          	    }
-    		  $this->load->view('counter/invoice');
+
+                $data['reservation']=$reservation;
+                $data['customer']=$this->db->get_where('customer', array('customer_id'=> $customer_id))->row_array();
+                $data['accounts']=$accounts;
+
+                $this->load->view('counter/invoice',$data);
             }
     	}else{
     		redirect(base_url('index.php/counter')); 
@@ -176,7 +181,12 @@ class SavaInformation_Controller extends CI_Controller {
                     );
                     $reservationdb=$this->savainformation_model->reservation($reservation);
                 }
-              $this->load->view('counter/invoice');
+
+                $data['reservation']=$reservation;
+                $data['customer']=$this->db->get_where('customer', array('customer_id'=> $customer_id))->row_array();
+                $data['accounts']=$accounts;
+
+                $this->load->view('counter/invoice',$data);
             }
         }else{
             redirect(base_url('index.php/counter')); 

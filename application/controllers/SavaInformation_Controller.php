@@ -89,7 +89,7 @@ class SavaInformation_Controller extends CI_Controller {
                     );
                     $reservationdb=$this->savainformation_model->reservation($reservation);
          	    }
-    		  $this->load->view('invoice');
+    		  $this->load->view('counter/invoice');
             }
     	}else{
     		redirect(base_url('index.php/counter')); 
@@ -176,7 +176,7 @@ class SavaInformation_Controller extends CI_Controller {
                     );
                     $reservationdb=$this->savainformation_model->reservation($reservation);
                 }
-              $this->load->view('invoice');
+              $this->load->view('counter/invoice');
             }
         }else{
             redirect(base_url('index.php/counter')); 

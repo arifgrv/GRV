@@ -69,67 +69,13 @@ class Counter_Controller extends CI_Controller {
                 'Movie_Name' => $this->input->post('show_name'),
                 'show_time' => $this->input->post('show_time'),
                 'Show_date' => date('Y-m-d', strtotime($this->input->post('show_date'))),
+                'CustomerType'=>$this->input->post('CustomerType'),
             );
 
              $this->load->view('counter/sitplan',$data);
 
         }else{
-            redirect(base_url('index.php/BookTicket')); 
-        }
-    }
-
-
-    public function makeResurve(){
-
-        //Login Check
-        $this->is_logged_in();
-
-        // MAKE RESERVATION
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-            date_default_timezone_set('Asia/Dhaka');
-            $invoice_number=$this->invoice_generator->generateInvoiceNumber();
-            
-            $data['invoice_number']=$invoice_number;
-            $data['customer_name']=$_POST['name'];
-            $data['customer_mobile']=$_POST['mobile'];
-            $data['movie_name']=$_POST['show_name'];
-            $data['show_time']=$_POST['show_time'];
-            $data['reserve_date']=date($_POST['show_date']);
-            $data['currentdate']=date('Y-m-d');
-            
-            foreach ($_POST['seatcheckbox'] as $seat) {
-                switch (true) {
-                    case strpos($seat, 'VIP') !== false:
-                        $id=3;
-                        $data['sitcategory']=$id;
-                        $data['seat_number']=$seat;
-                        $data['price']=$this->Login_model->getTicketPriceById($id);
-                      break;
-                    case strpos($seat, 'J') !== false:
-                        $id=1;
-                        $data['sitcategory']=$id;
-                        $data['seat_number']=$seat;
-                        $data['price']=$this->Login_model->getTicketPriceById($id);
-                        break;
-                    default:
-                        $id=2;
-                        $data['sitcategory']=$id;
-                        $data['seat_number']=$seat;
-                        $data['price']=$this->Login_model->getTicketPriceById($id);
-                        break;
-                }
-
-                //counter save data
-                $data['bKashTransID']='';
-                $this->db->insert('reservationrecord',$data);
-
-            }
-
-            $invoice['invoice_record']=$this->Login_model->GetInfoByInvoice($invoice_number);
-            $this->load->view('invoice',$invoice);
-        }else{
-            redirect(base_url('index.php/login')); 
+            redirect(base_url('index.php/BookTicket/1')); 
         }
     }
 

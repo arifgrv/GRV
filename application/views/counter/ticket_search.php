@@ -45,6 +45,7 @@
                                         <!-- Add more options as needed -->
                                     </select>
                                 </div>
+                                <input type="hidden" name="CustomerType" value="<?php echo $CustomerType ;?>">
                                 <button type="submit" class="btn btn-primary mt-3">Book Now</button>
                             </form>
                         </div>

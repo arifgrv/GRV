@@ -22,19 +22,22 @@
                             <h4 class="mb-0">Customer Information</h4>
                         </div>
                         <div class="card-body">
-                            <form action="<?php echo base_url("index.php/makeResurve"); ?>" method="POST">
+                            <form action="<?php echo base_url("index.php/Save"); ?>" method="POST">
                                 <div class="form-group">
                                     <label for="name">Name:</label>
-                                    <input type="text" class="form-control" id="name" name="name" required>
+                                    <input type="text" class="form-control" id="name" name="name" value="<?php echo set_value('name'); ?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="mobile">Mobile Number:</label>
-                                    <input type="text" class="form-control" id="mobile" name="mobile" pattern="[0-9]{11}" required>
+                                    <input type="text" class="form-control" id="mobile" name="mobile" pattern="[0-9]{11}" value="<?php echo set_value('mobile'); ?>" required>
                                     <small class="form-text text-muted">Please enter a 11-digit mobile number.</small>
                                 </div>
-                                <?php echo form_hidden('show_name', $Movie_Name); ?>
-                                <?php echo form_hidden('show_date', $Show_date); ?>
-                                <?php echo form_hidden('show_time', $show_time); ?>
+
+                                <input type="hidden" name="show_name" value="<?php echo set_value('show_name'); ?>">
+                                <input type="hidden" name="show_date" value="<?php echo set_value('show_date'); ?>">
+                                <input type="hidden" name="show_time" value="<?php echo set_value('show_time'); ?>">
+                                <input type="hidden" name="CustomerType" value="<?php echo set_value('CustomerType'); ?>">
+
                         </div>
                     </div>
                 </div>
@@ -47,6 +50,12 @@
                         <i class="fa-solid fa-chair text-danger"> - Sold Out</i>
                         &emsp;
                         <i class="fa-solid fa-chair text-primary"> - Available</i>
+                        <p><?php 
+                            $error_message = $this->session->flashdata('error_message');
+                             if ($error_message) {
+                                echo '<div class="error"><h1>' . $error_message . '</h1></div>';
+                            };
+                         ?></p>
                     </div>
                     <div class="card-body">
                         <!-- Seat Selection -->

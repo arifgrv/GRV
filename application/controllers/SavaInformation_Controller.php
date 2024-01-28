@@ -39,6 +39,21 @@ class SavaInformation_Controller extends CI_Controller {
              	$this->load->view('counter/sitplan',$data);
          	}else{
 
+         		//GET INVOICE NUMBER
+         		$invoice_number=$this->invoice_generator->generateInvoiceNumber();
+
+         		//accounts data
+         		$accounts = array(
+         			'invoice_number' =>$invoice_number , 
+         			'total_bill' => $this->input->post('totalbill'), 
+         			'received_amount' => $this->input->post('totalbill'), 
+         			'voucher_code' => '', 
+         			'transaction_id' =>'' , 
+         			'payment_date' =>date('Y-m-d') , 
+         			'sales_type' => 'counter', 
+         			
+         		);
+
          	}
     		
     	}else{

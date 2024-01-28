@@ -25,11 +25,11 @@
                                 <div class="card-body">                            
                                     <div class="form-group">
                                         <label for="name">Name:</label>
-                                        <input type="text" class="form-control" id="name" name="name" required>
+                                        <input type="text" class="form-control" id="name" name="name" value="<?php echo $this->session->userdata('user_name') ;?>" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="mobile">Mobile Number:</label>
-                                        <input type="text" class="form-control" id="mobile" name="mobile" pattern="[0-9]{11}"  required>
+                                        <input type="text" class="form-control" id="mobile" name="mobile" pattern="[0-9]{11}" value="<?php echo $this->session->userdata('user_mobile') ;?>" required>
                                         <small class="form-text text-muted">Please enter a 11-digit mobile number.</small>
                                     </div>
                                     <input type="hidden" name="show_name" value="<?php echo set_value('show_name'); ?>">
@@ -178,10 +178,34 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <b><h3 class="text-success" id="total_cost_show"></h3></b>
-                    <input type="hidden" name="totalbill" id="total_cost">
-                    <button type="submit" class="btn btn-success mt-3 btn-lg">Reserve</button>
+                <div class="col-md-12 mt-5">
+                    <div class="card">
+                        <div class="card-header">Digital Payment:</div>
+                        <div class="row  mt-5 mb-3">
+                            <div class="col-md-6">
+                                <img src="<?php echo base_url('Assets/BkashPayment.jpeg') ;?> " width="400px" height="400px">
+                            </div>
+                            <div class="col-md-6">
+                                <h1 style="margin-left: 20px;">bKash Number: <a href="#" class="copyLink" onclick="copyLinkedText(event)">01877766966</a></h1>
+                                <div class="row" style="margin-right:3px;">
+                                    
+                                    <hr>
+                                    <b><h3 class="text-success" id="total_cost_show"></h3></b>
+                                    <input type="hidden" name="totalbill" id="total_cost">
+                                    <hr>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="transID">bKash Trans ID:</label>
+                                            <input type="text" class="form-control" name="transID"  id="transID" placeholder="Enter Trans ID" required>
+                                            <button type="submit" class="btn btn-success mt-3 btn-lg">Reserve</button>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
           </div>

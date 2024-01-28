@@ -1,7 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-class SavaInformation_model {
+class SavaInformation_model extends CI_Model {
 
     public function accounts($data){
 

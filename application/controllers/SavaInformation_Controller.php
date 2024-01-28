@@ -10,7 +10,7 @@ class SavaInformation_Controller extends CI_Controller {
         $this->load->library('session');
         $this->load->library('seat_reservation');
         $this->load->library('invoice_generator');
-        $this->load->model('savaInformation_model');
+        $this->load->model('savainformation_model');
     }
 
 	public function save()
@@ -54,7 +54,7 @@ class SavaInformation_Controller extends CI_Controller {
          			'sales_type' => 'counter', 
          		);
 
-                $accountsdb=$this->savaInformation_model->accounts($accounts);
+                $accountsdb=$this->savainformation_model->accounts($accounts);
 
                 ///===============================================================
                 //customer data:
@@ -72,7 +72,7 @@ class SavaInformation_Controller extends CI_Controller {
                         'account_type'=>'4',
                         'status'=>'2',
                     );
-                    $customer_id=$this->savaInformation_model->customer($customer);
+                    $customer_id=$this->savainformation_model->customer($customer);
                  }
 
                 ///===============================================================
@@ -87,7 +87,7 @@ class SavaInformation_Controller extends CI_Controller {
                         'booking_date' => date('Y-m-d'), 
                         'sit_number' => $seat, 
                     );
-                    $reservationdb=$this->savaInformation_model->reservation($reservation);
+                    $reservationdb=$this->savainformation_model->reservation($reservation);
          	    }
     		  $this->load->view('invoice');
             }

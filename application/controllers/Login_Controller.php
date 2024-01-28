@@ -61,7 +61,7 @@ class Login_Controller extends CI_Controller {
         $this->session->unset_userdata('user_name');
         $this->session->unset_userdata('user_mobile');
         $this->session->sess_destroy();
-        redirect(base_url('index.php/home')); 
+        redirect(base_url('index.php/homepage')); 
     }
 
 	public function admindashboard(){

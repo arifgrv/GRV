@@ -17,7 +17,7 @@
           <div class="card recent-sales overflow-auto">
             <div class="card-body">
               <h5 class="card-title">General Sales<span>Info</span></h5>
-                <form action="<?php echo base_url("index.php/accountsreport"); ?>" method="POST">
+                <form action="<?php echo base_url("index.php/Accounts"); ?>" method="POST">
                     <div class="row bg-light p-3">
                         <div class="col-md-4">
                             <label for="Date_From">From:</label>

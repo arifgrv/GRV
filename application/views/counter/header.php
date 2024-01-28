@@ -175,7 +175,7 @@
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>GRV Cineplex</h6>
+              <h6><?php echo $this->session->userdata('user_name'); ?></h6>
               <span>Ticket Counter</span>
             </li>
             <li>

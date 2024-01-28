@@ -64,15 +64,33 @@ class Counter_Controller extends CI_Controller {
         // viw sit plan 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            $data = array(
-                'current_date' => date('Y-m-d'),
-                'Movie_Name' => $this->input->post('show_name'),
-                'show_time' => $this->input->post('show_time'),
-                'Show_date' => date('Y-m-d', strtotime($this->input->post('show_date'))),
-                'CustomerType'=>$this->input->post('CustomerType'),
-            );
+            switch ($this->input->post('CustomerType')) {
+                case '2':
+                    $data = array(
+                        'current_date' => date('Y-m-d'),
+                        'Movie_Name' => $this->input->post('show_name'),
+                        'show_time' => $this->input->post('show_time'),
+                        'Show_date' => date('Y-m-d', strtotime($this->input->post('show_date'))),
+                        'CustomerType'=>$this->input->post('CustomerType'),
+                    );
 
-             $this->load->view('counter/sitplan',$data);
+                     $this->load->view('counter/dsitplan',$data);
+                    break;
+                
+                default:
+                    $data = array(
+                        'current_date' => date('Y-m-d'),
+                        'Movie_Name' => $this->input->post('show_name'),
+                        'show_time' => $this->input->post('show_time'),
+                        'Show_date' => date('Y-m-d', strtotime($this->input->post('show_date'))),
+                        'CustomerType'=>$this->input->post('CustomerType'),
+                    );
+
+                     $this->load->view('counter/sitplan',$data);
+                    break;
+            }
+
+            
 
         }else{
             redirect(base_url('index.php/BookTicket/1')); 

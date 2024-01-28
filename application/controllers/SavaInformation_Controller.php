@@ -182,7 +182,7 @@ class SavaInformation_Controller extends CI_Controller {
                     $reservationdb=$this->savainformation_model->reservation($reservation);
                 }
 
-                $data['reservation']=$reservation;
+                $data['reservation']=$this->db->get_where('reservation', array('invoice_number'=> $invoice_number))->result_array();
                 $data['customer']=$this->db->get_where('customer', array('customer_id'=> $customer_id))->row_array();
                 $data['accounts']=$accounts;
 

@@ -115,7 +115,7 @@
                     <th>Seat No</th>
                     <th>Unit Price</th>
                 </tr>
-                <?php $totalAmount = 0; foreach ($invoice_record as $key => $value) { ?>
+                <?php $totalAmount = 0; foreach ($reservation as $key => $value) { ?>
                     <tr>
                         <td><?php echo ($key + 1); ?></td>
                         <td><?php echo $value->seat_number; ?></td>

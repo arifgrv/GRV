@@ -29,7 +29,7 @@ $route['SitPlan'] = 'Counter_Controller/SitPlan';
 $route['customer'] = 'Customer_Controller/index';
 
 //sava data to DB
-$route['Save'] = 'SavaInformation_Controller/index';
+$route['Save'] = 'SavaInformation_Controller/save';
 
 
 

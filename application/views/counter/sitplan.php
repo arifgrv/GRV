@@ -50,13 +50,12 @@
                         <i class="fa-solid fa-chair text-danger"> - Sold Out</i>
                         &emsp;
                         <i class="fa-solid fa-chair text-primary"> - Available</i>
-                        <p><?php 
-                            $error_message = $this->session->flashdata('error_message');
-                             if ($error_message) {
-                                echo '<div class="error"><h1>' . $error_message . '</h1></div>';
-                            };
-                         ?></p>
                     </div>
+                    <?php if (validation_errors()): ?>
+                    <div class="alert alert-danger" role="alert">
+                        <h3><?php echo validation_errors(); ?></h3>
+                    </div>                        
+                    <?php endif ?>
                     <div class="card-body">
                         <!-- Seat Selection -->
                         <div class="form-group">
@@ -93,7 +92,12 @@
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="row">
-                                                            <?php echo $this->seat_reservation->generateSeatCheckbox($Show_date, $show_time, $Movie_Name, '9', '15', 'VIP'); ?>
+                                                            <?php echo $this->seat_reservation->generateSeatCheckbox(
+                                                                    set_value('show_date', $Show_date),
+                                                                    set_value('show_time', $show_time),
+                                                                    set_value('show_name', $Movie_Name), 
+                                                                    '9', '15', 'VIP'
+                                                                ); ?>
                                                         </div>
                                                     </div>
                                                 </div>

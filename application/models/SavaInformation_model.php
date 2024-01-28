@@ -20,4 +20,10 @@ class SavaInformation_model {
         $this->db->insert('reservation', $data);
         return $this->db->insert_id(); 
     }
+
+    public function ChkCustomer($data){
+
+        $query = $this->db->get_where('customer', array('status'=> '1'))->result_array();
+        return $query;
+    }
 }

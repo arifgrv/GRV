@@ -9,6 +9,7 @@ class SavaInformation_Controller extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->library('session');
         $this->load->library('seat_reservation');
+        $this->load->library('invoice_generator');
         $this->load->model('savaInformation_model');
     }
 
@@ -51,11 +52,45 @@ class SavaInformation_Controller extends CI_Controller {
          			'transaction_id' =>'' , 
          			'payment_date' =>date('Y-m-d') , 
          			'sales_type' => 'counter', 
-         			
          		);
 
-         	}
-    		
+                $accountsdb=$this->savaInformation_model->accounts($accounts);
+
+                ///===============================================================
+                //customer data:
+
+                 $GetCustomer = $this->db->get_where('customer', array('mobile'=> $this->input->post('mobile')))->row_array();
+
+                 if ($GetCustomer) {
+                    $customer_id =$GetCustomer['customer_id'];
+                 }else{
+                    $customer=array(
+                        'full_name'=>$this->input->post('name'),
+                        'email'=>'',
+                        'mobile'=>$this->input->post('mobile'),
+                        'password'=>$this->input->post('mobile'),
+                        'account_type'=>'4',
+                        'status'=>'2',
+                    );
+                    $customer_id=$this->savaInformation_model->customer($customer);
+                 }
+
+                ///===============================================================
+                //reservation data
+                foreach ($_POST['seatcheckbox'] as $seat) {
+                    $reservation= array(
+                        'invoice_number' => $invoice_number , 
+                        'customer_id' => $customer_id, 
+                        'movie_name' => $this->input->post('show_name'), 
+                        'show_time' => $this->input->post('show_time'), 
+                        'reserve_date' => date('Y-m-d', strtotime($this->input->post('show_date'))), 
+                        'booking_date' => date('Y-m-d'), 
+                        'sit_number' => $seat, 
+                    );
+                    $reservationdb=$this->savaInformation_model->reservation($reservation);
+         	    }
+    		  $this->load->view('invoice');
+            }
     	}else{
     		redirect(base_url('index.php/counter')); 
     	}

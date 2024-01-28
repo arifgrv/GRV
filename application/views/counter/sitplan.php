@@ -10,7 +10,7 @@
 
     <?php include 'submain/pagetitle.php';?>
 
-    <form action="<?php echo base_url("index.php/UserMakeResurve"); ?>" method="POST">
+    <form action="<?php echo base_url("index.php/Save"); ?>" method="POST">
         <section class="section dashboard">
           <div class="row">
             <div class="container mt-5">

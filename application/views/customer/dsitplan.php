@@ -195,7 +195,7 @@
                                     <hr>
                                     <b><h3 class="text-success" id="total_cost_show"></h3></b>
                                     <input type="hidden" name="totalbill" id="total_cost">
-                                    <input type="hidden" name="submitby" value="Counter_Discount">
+                                    <input type="hidden" name="submitby" value="Online_Discount">
                                     <hr>
                                     <div class="col-md-6 mb-3">
                                         <label for="receivedAmount"><b>Paid Amount</b> </label>

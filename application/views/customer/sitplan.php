@@ -10,7 +10,7 @@
 
     <?php include 'submain/pagetitle.php';?>
 
-    <form action="<?php echo base_url("index.php/saveDiscount"); ?>" method="POST">
+    <form action="<?php echo base_url("index.php/saveGeneral"); ?>" method="POST">
         <section class="section dashboard">
           <div class="row">
             <div class="container mt-5">
@@ -179,38 +179,31 @@
                     </div>
                 </div>
                 <div class="col-md-12 mt-5">
-                    <div class="card p-3">
-                        <div class="card-header">Counter Payment:</div>
+                    <div class="card">
+                        <div class="card-header">Digital Payment:</div>
                         <div class="row  mt-5 mb-3">
                             <div class="col-md-6">
-                                <p  style="text-align: justify;">We're thrilled to guide you on how to calculate the value of your voucher:</p>
-                                    <u>For Percentage Voucher</u>
-                                    <p><b>Paid Amount=Total Amount−(Total Amount×Discount Percentage/100)</b></p>
-                                    <u>For Cash Voucher</u>
-                                    <p><b>Paid Amount=Total Amount−Discount Cash Amount</b></p>
+                                <img src="<?php echo base_url('Assets/BkashPayment.jpeg') ;?> " width="400px" height="400px">
                             </div>
                             <div class="col-md-6">
+                                <h1 style="margin-left: 20px;">bKash Number: <a href="#" class="copyLink" onclick="copyLinkedText(event)">01877766966</a></h1>
                                 <div class="row" style="margin-right:3px;">
                                     
                                     <hr>
                                     <b><h3 class="text-success" id="total_cost_show"></h3></b>
                                     <input type="hidden" name="totalbill" id="total_cost">
-                                    <input type="hidden" name="submitby" value="Counter_Discount">
+                                    <input type="hidden" name="submitby" value="Online_General">
                                     <hr>
                                     <div class="col-md-6 mb-3">
-                                        <label for="receivedAmount"><b>Paid Amount</b> </label>
-                                            <input type="text" class="form-control" name="discount_amount" id="discount_amount" placeholder="Paid Amount" required>
-                                    </div>
-
-                                    <div class="col-md-6 mb-3">
-                                        <label for="discountVoucherCode">Voucher Code:</label>
-                                        <input type="text" class="form-control" name="discount_ref" id="discount_ref" placeholder="Voucher Code" required>
+                                        <label for="transID">bKash Trans ID:</label>
+                                            <input type="text" class="form-control" name="transID"  id="transID" placeholder="Enter Trans ID" required>
+                                            <button type="submit" class="btn btn-success mt-3 btn-lg">Reserve</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-success mt-3 btn-lg">Reserve</button>
+                            
                         </div>
                     </div>
                 </div>

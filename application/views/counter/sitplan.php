@@ -181,6 +181,7 @@
                 <div class="col-md-6 mb-3">
                     <b><h3 class="text-success" id="total_cost_show"></h3></b>
                     <input type="hidden" name="totalbill" id="total_cost">
+                    <input type="hidden" name="submitby" value="Counter_General">
                     <button type="submit" class="btn btn-success mt-3 btn-lg">Reserve</button>
                 </div>
             </div>

@@ -26,10 +26,12 @@ $route['SitPlan'] = 'Counter_Controller/SitPlan';
 $route['Accounts'] = 'Counter_Controller/AccountsReport';
 $route['reprint/(:any)/(:any)'] = 'Counter_Controller/reprint/$1/$1';
 
-
-
 //Customer Controller
 $route['customer'] = 'Customer_Controller/index';
+$route['UserBookTicket/(:any)'] = 'Customer_Controller/ticket_Search/$1';
+$route['UserSitPlan'] = 'Customer_Controller/SitPlan';
+$route['UserAccounts'] = 'Customer_Controller/AccountsReport';
+$route['UserReprint/(:any)/(:any)'] = 'Customer_Controller/reprint/$1/$1';
 
 //sava data to DB
 $route['saveGeneral'] = 'SavaInformation_Controller/saveGeneral';

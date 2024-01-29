@@ -93,7 +93,24 @@ class SavaInformation_Controller extends CI_Controller {
 
                 $data['InvoiceData']=$this->Counter_model->AccountsReport($invoice_number);
 
-                $this->load->view('counter/invoice',$data);
+                switch ($this->input->post('submitby')) {
+                    case 'Online_General':
+                        $this->load->view('counter/invoice',$data);
+                        break;
+                    case 'Counter_Discount':
+                        $this->load->view('customer/dinvoice',$data);
+                        break;     
+                    case 'Online_Discount':
+                        $this->load->view('counter/dinvoice',$data);
+                        break;
+                    case 'Counter_General':
+                        $this->load->view('customer/dinvoice',$data);
+                        break;                  
+                    default:
+                        // code...
+                        break;
+                }
+                
             }
     	}else{
     		redirect(base_url('index.php/counter')); 
@@ -183,10 +200,20 @@ class SavaInformation_Controller extends CI_Controller {
 
                 $data['InvoiceData']=$this->Counter_model->AccountsReport($invoice_number);
 
-                $this->load->view('counter/dinvoice',$data);
+                switch ($this->input->post('submitby')) {
+                    case 'Online':
+                        $this->load->view('counter/dinvoice',$data);
+                        break;
+                    case 'Counter':
+                        $this->load->view('customer/dinvoice',$data);
+                        break;                    
+                    default:
+                        // code...
+                        break;
+                }
             }
         }else{
-            redirect(base_url('index.php/counter')); 
+            redirect(base_url('index.php/homepage')); 
         }
     }
 	// Custom validation rule to check at least one checkbox is checked

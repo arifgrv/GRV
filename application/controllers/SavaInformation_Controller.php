@@ -95,17 +95,17 @@ class SavaInformation_Controller extends CI_Controller {
 
                 switch ($this->input->post('submitby')) {
                     case 'Online_General':
-                        $this->load->view('counter/invoice',$data);
+                        $this->load->view('customer/invoice',$data);
                         break;
-                    case 'Counter_Discount':
-                        $this->load->view('customer/dinvoice',$data);
-                        break;     
                     case 'Online_Discount':
-                        $this->load->view('counter/dinvoice',$data);
+                        $this->load->view('customer/dinvoice',$data);
                         break;
                     case 'Counter_General':
-                        $this->load->view('customer/dinvoice',$data);
-                        break;                  
+                        $this->load->view('counter/invoice',$data);
+                        break;  
+                    case 'Counter_Discount':
+                        $this->load->view('counter/dinvoice',$data);
+                        break;                     
                     default:
                         // code...
                         break;

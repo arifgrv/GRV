@@ -60,19 +60,32 @@ class SavaInformation_Controller extends CI_Controller {
 
          		//GET INVOICE NUMBER
          		$invoice_number=$this->invoice_generator->generateInvoiceNumber();
-
-         		//accounts data
-         		$accounts = array(
-         			'invoice_number' =>$invoice_number , 
-         			'total_bill' => $this->input->post('totalbill'), 
-         			'received_amount' => $this->input->post('totalbill'), 
-         			'voucher_code' => '', 
-         			'transaction_id' =>'' , 
-         			'payment_date' =>date('Y-m-d') , 
-         			'sales_type' => 'counter', 
-         		);
-
-                $accountsdb=$this->savainformation_model->accounts($accounts);
+                if ($this->input->post('submitby')=='Counter_General') {
+                    $accounts = array(
+                        'invoice_number' =>$invoice_number , 
+                        'total_bill' => $this->input->post('totalbill'), 
+                        'received_amount' => $this->input->post('totalbill'), 
+                        'voucher_code' => '', 
+                        'transaction_id' =>'' , 
+                        'payment_date' =>date('Y-m-d') , 
+                        'sales_type' => 'Counter', 
+                    );
+                    //accounts data
+                    $accountsdb=$this->savainformation_model->accounts($accounts);
+                }elseif ($this->input->post('submitby')=='Online_General'){
+                    $accounts = array(
+                        'invoice_number' =>$invoice_number , 
+                        'total_bill' => $this->input->post('totalbill'), 
+                        'received_amount' => $this->input->post('totalbill'), 
+                        'voucher_code' => '', 
+                        'transaction_id' => $this->input->post('transID'), 
+                        'payment_date' =>date('Y-m-d') , 
+                        'sales_type' => 'Online',
+                        'comments' =>'Pending',
+                    );
+                    //accounts data
+                    $accountsdb=$this->savainformation_model->accounts($accounts);
+                }
 
                 ///===============================================================
                 //customer data:
@@ -112,10 +125,12 @@ class SavaInformation_Controller extends CI_Controller {
 
                 switch ($this->input->post('submitby')) {
                     case 'Online_General':
-                        $this->load->view('customer/invoice',$data);
+                        //$this->load->view('customer/invoice',$data);
+                        redirect(base_url('index.php/customer'));
                         break;
                     case 'Online_Discount':
-                        $this->load->view('customer/dinvoice',$data);
+                        //$this->load->view('customer/dinvoice',$data);
+                        redirect(base_url('index.php/customer'));
                         break;
                     case 'Counter_General':
                         $this->load->view('counter/invoice',$data);
@@ -164,10 +179,12 @@ class SavaInformation_Controller extends CI_Controller {
                 
                 switch ($this->input->post('submitby')) {
                     case 'Online_General':
-                        $this->load->view('customer/sitplan',$data);
+                        //$this->load->view('customer/sitplan',$data);
+                        redirect(base_url('index.php/customer'));
                         break;
                     case 'Online_Discount':
-                        $this->load->view('customer/dsitplan',$data);
+                        //$this->load->view('customer/dsitplan',$data);
+                        redirect(base_url('index.php/customer'));
                         break;
                     case 'Counter_General':
                         $this->load->view('counter/sitplan',$data);
@@ -185,18 +202,32 @@ class SavaInformation_Controller extends CI_Controller {
                 //GET INVOICE NUMBER
                 $invoice_number=$this->invoice_generator->generateInvoiceNumber();
 
-                //accounts data
-                $accounts = array(
-                    'invoice_number' =>$invoice_number , 
-                    'total_bill' => $this->input->post('totalbill'), 
-                    'received_amount' => $this->input->post('discount_amount'), 
-                    'voucher_code' => $this->input->post('discount_ref'), 
-                    'transaction_id' =>'' , 
-                    'payment_date' =>date('Y-m-d') , 
-                    'sales_type' => 'counter', 
-                );
-
-                $accountsdb=$this->savainformation_model->accounts($accounts);
+                if ($this->input->post('submitby')=='Counter_Discount') {
+                    $accounts = array(
+                        'invoice_number' =>$invoice_number , 
+                        'total_bill' => $this->input->post('totalbill'), 
+                        'received_amount'=>$this->input->post('discount_amount'),
+                        'voucher_code' => $this->input->post('discount_ref'), 
+                        'transaction_id' =>'' , 
+                        'payment_date' =>date('Y-m-d') , 
+                        'sales_type' => 'Counter', 
+                    );
+                    //accounts data
+                    $accountsdb=$this->savainformation_model->accounts($accounts);
+                }elseif ($this->input->post('submitby')=='Online_Discount'){
+                    $accounts = array(
+                        'invoice_number' =>$invoice_number , 
+                        'total_bill' => $this->input->post('totalbill'), 
+                        'received_amount'=>$this->input->post('discount_amount'),
+                        'voucher_code' => $this->input->post('discount_ref'), 
+                        'transaction_id' => $this->input->post('transID'), 
+                        'payment_date' =>date('Y-m-d') , 
+                        'sales_type' => 'Online',
+                        'comments' =>'Pending',
+                    );
+                    //accounts data
+                    $accountsdb=$this->savainformation_model->accounts($accounts);
+                }
 
                 ///===============================================================
                 //customer data:

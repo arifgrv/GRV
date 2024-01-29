@@ -112,6 +112,21 @@ class Counter_Controller extends CI_Controller {
             $this->load->view('counter/accounts',$data);
     }
 
-
+    public function reprint(){
+        //Login Check
+        $this->is_logged_in();
+        $invoice_number=$this->uri->segment(2);
+        $id=$this->uri->segment(3);
+        switch ($id) {
+            case '2':
+                $data['InvoiceData']=$this->Counter_model->AccountsReport($invoice_number);
+                $this->load->view('counter/dinvoice',$data);
+                break;
+            default:
+                $data['InvoiceData']=$this->Counter_model->AccountsReport($invoice_number);
+                $this->load->view('counter/invoice',$data);
+                break;
+        }
+    }
 
 }

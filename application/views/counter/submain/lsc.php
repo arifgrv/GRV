@@ -165,7 +165,7 @@
                     <tbody>
                       <?php foreach ($AccountsReport as $key => $value): ?>
                       <tr>
-                        <th scope="row"><a href="<?php echo base_url('index.php/reprint/'.$value['invoice_number']);?>" target="_blank"><?php echo $value['invoice_number'] ; ?></a></th>
+                        <th scope="row"><a href="<?php echo base_url('index.php/reprint/'.$value['invoice_number'].'/1');?>" target="_blank"><?php echo $value['invoice_number'] ; ?></a></th>
                         <td><?php echo $value['customer_name']; ?></td>
                         <td><?php echo $value['customer_mobile']; ?></td>
                         <td><?php echo $value['reserve_date']; ?></td>

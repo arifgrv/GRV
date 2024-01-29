@@ -24,6 +24,8 @@ $route['counter'] = 'Counter_Controller/index';
 $route['BookTicket/(:any)'] = 'Counter_Controller/ticket_Search/$1';
 $route['SitPlan'] = 'Counter_Controller/SitPlan';
 $route['Accounts'] = 'Counter_Controller/AccountsReport';
+$route['reprint/(:any)/(:any)'] = 'Counter_Controller/reprint/$1/$1';
+
 
 
 //Customer Controller

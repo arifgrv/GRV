@@ -24,4 +24,5 @@ class Login_model extends CI_Model {
         return $this->db->insert_id(); 
     }
 
+
 }

@@ -25,11 +25,11 @@
                                 <div class="card-body">                            
                                     <div class="form-group">
                                         <label for="name">Name:</label>
-                                        <input type="text" class="form-control" id="name" name="name" value="<?php echo set_value('name'); ?>" required>
+                                        <input type="text" class="form-control" id="name" name="name" value="<?php echo set_value('name',$this->session->userdata('user_name')); ?>" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="mobile">Mobile Number:</label>
-                                        <input type="text" class="form-control" id="mobile" name="mobile" pattern="[0-9]{11}"  value="<?php echo set_value('mobile'); ?>" required>
+                                        <input type="text" class="form-control" id="mobile" name="mobile" pattern="[0-9]{11}"  value="<?php echo set_value('mobile',$this->session->userdata('user_mobile')); ?>" required>
                                         <small class="form-text text-muted">Please enter a 11-digit mobile number.</small>
                                     </div>
                                     <input type="hidden" name="show_name" value="<?php echo set_value('show_name'); ?>">

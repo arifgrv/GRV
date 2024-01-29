@@ -34,8 +34,8 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="<?php echo base_url('#'); ?>"  target="_blank">
-              <i class="bi bi-circle"></i><span>General Sales</span>
+            <a href="<?php echo base_url('index.php/PaymentVerification'); ?>"  target="_blank">
+              <i class="bi bi-circle"></i><span>History</span>
             </a>
           </li>
         </ul>

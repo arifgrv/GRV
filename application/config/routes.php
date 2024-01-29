@@ -32,6 +32,7 @@ $route['UserBookTicket/(:any)'] = 'Customer_Controller/ticket_Search/$1';
 $route['UserSitPlan'] = 'Customer_Controller/SitPlan';
 $route['UserAccounts'] = 'Customer_Controller/AccountsReport';
 $route['UserReprint/(:any)/(:any)'] = 'Customer_Controller/reprint/$1/$1';
+$route['PaymentVerification'] = 'Customer_Controller/PaymentVerification';
 
 //sava data to DB
 $route['saveGeneral'] = 'SavaInformation_Controller/saveGeneral';

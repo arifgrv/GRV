@@ -11,6 +11,7 @@ class Customer_Controller extends CI_Controller {
         $this->load->library('seat_reservation');
         $this->load->model('Counter_model');
         $this->load->model('home_model');
+        $this->load->model('Customer_model');
         $this->is_logged_in();
     }
 
@@ -126,6 +127,12 @@ class Customer_Controller extends CI_Controller {
                 break;
         }
     }
-	
+
+    public function PaymentVerification(){
+        $result=$this->Customer_model->UserByEmail($this->session->userdata('user_email'));
+        $data['UserTickInfo']=$this->Customer_model->AccountsReportByCID($result['customer_id']);
+
+        $this->load->view('customer/history',$data);
+    }
 
 }

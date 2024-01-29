@@ -179,32 +179,38 @@
                     </div>
                 </div>
                 <div class="col-md-12 mt-5">
-                    <div class="card p-3">
-                        <div class="card-header">Counter Payment:</div>
+                    <div class="card">
+                        <div class="card-header">Digital Payment:</div>
                         <div class="row  mt-5 mb-3">
                             <div class="col-md-6">
-                                <p  style="text-align: justify;">We're thrilled to guide you on how to calculate the value of your voucher:</p>
+                                <img src="<?php echo base_url('Assets/BkashPayment.jpeg') ;?> " width="400px" height="400px">
+                                <p style="margin-left: 20px;">bKash Number: <a href="#" class="copyLink" onclick="copyLinkedText(event)">01877766966</a></p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row" style="margin-right:3px;">
+                                    <p  style="text-align: justify;">Dear valued customer,<br/>  We appreciate your continued support and loyalty to our services. We're thrilled to guide you on how to calculate the value of your voucher:</p>
                                     <u>For Percentage Voucher</u>
                                     <p><b>Paid Amount=Total Amount−(Total Amount×Discount Percentage/100)</b></p>
                                     <u>For Cash Voucher</u>
                                     <p><b>Paid Amount=Total Amount−Discount Cash Amount</b></p>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row" style="margin-right:3px;">
-                                    
                                     <hr>
                                     <b><h3 class="text-success" id="total_cost_show"></h3></b>
                                     <input type="hidden" name="totalbill" id="total_cost">
                                     <input type="hidden" name="submitby" value="Online_Discount">
                                     <hr>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="receivedAmount"><b>Paid Amount</b> </label>
+                                    <div class="col-md-12 mb-3">
+                                        <label for="receivedAmount"><b>Paid Amount</b> as calculated by above formula:</label>
                                             <input type="text" class="form-control" name="discount_amount" id="discount_amount" placeholder="Paid Amount" required>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label for="discountVoucherCode">Voucher Code:</label>
                                         <input type="text" class="form-control" name="discount_ref" id="discount_ref" placeholder="Voucher Code" required>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="transID">bKash Trans ID:</label>
+                                            <input type="text" class="form-control" name="transID"  id="transID" placeholder="Enter Trans ID" required>
                                     </div>
                                 </div>
                             </div>

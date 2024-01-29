@@ -37,8 +37,25 @@ class SavaInformation_Controller extends CI_Controller {
                 'Show_date' => date('Y-m-d', strtotime($this->input->post('show_date'))),
                 'CustomerType'=>$this->input->post('CustomerType'),
            		 );
-    			
-             	$this->load->view('counter/sitplan',$data);
+
+                switch ($this->input->post('submitby')) {
+                    case 'Online_General':
+                        $this->load->view('customer/sitplan',$data);
+                        break;
+                    case 'Online_Discount':
+                        $this->load->view('customer/dsitplan',$data);
+                        break;
+                    case 'Counter_General':
+                        $this->load->view('counter/sitplan',$data);
+                        break;  
+                    case 'Counter_Discount':
+                        $this->load->view('counter/dsitplan',$data);
+                        break;                     
+                    default:
+                        // code...
+                        break;
+                }
+                        
          	}else{
 
          		//GET INVOICE NUMBER
@@ -145,7 +162,24 @@ class SavaInformation_Controller extends CI_Controller {
                 'CustomerType'=>$this->input->post('CustomerType'),
                  );
                 
-                $this->load->view('counter/sitplan',$data);
+                switch ($this->input->post('submitby')) {
+                    case 'Online_General':
+                        $this->load->view('customer/sitplan',$data);
+                        break;
+                    case 'Online_Discount':
+                        $this->load->view('customer/dsitplan',$data);
+                        break;
+                    case 'Counter_General':
+                        $this->load->view('counter/sitplan',$data);
+                        break;  
+                    case 'Counter_Discount':
+                        $this->load->view('counter/dsitplan',$data);
+                        break;                     
+                    default:
+                        // code...
+                        break;
+                }
+
             }else{
 
                 //GET INVOICE NUMBER
@@ -201,12 +235,18 @@ class SavaInformation_Controller extends CI_Controller {
                 $data['InvoiceData']=$this->Counter_model->AccountsReport($invoice_number);
 
                 switch ($this->input->post('submitby')) {
-                    case 'Online':
-                        $this->load->view('counter/dinvoice',$data);
+                    case 'Online_General':
+                        $this->load->view('customer/invoice',$data);
                         break;
-                    case 'Counter':
+                    case 'Online_Discount':
                         $this->load->view('customer/dinvoice',$data);
-                        break;                    
+                        break;
+                    case 'Counter_General':
+                        $this->load->view('counter/invoice',$data);
+                        break;  
+                    case 'Counter_Discount':
+                        $this->load->view('counter/dinvoice',$data);
+                        break;                     
                     default:
                         // code...
                         break;

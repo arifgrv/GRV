@@ -169,14 +169,14 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img class="rounded-image" src="<?php echo base_url(); ?>Assets/grv-transprent-logo.png" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">GRV Counter</span>
+            <img class="rounded-image" src="https://iarifbd.info/assets/img/me.png" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">www.iarifbd.info</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
               <h6><?php echo $this->session->userdata('user_name'); ?></h6>
-              <span>Ticket Counter</span>
+              <span>Online User</span>
             </li>
             <li>
               <hr class="dropdown-divider">

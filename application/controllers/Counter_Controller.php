@@ -11,6 +11,10 @@ class Counter_Controller extends CI_Controller {
         $this->load->library('seat_reservation');
         $this->load->model('Counter_model');
         $this->is_logged_in();
+
+        if ($this->session->userdata('user_email') !== 'grvcc@grvh.com') {
+            redirect(base_url('index.php/logout'));
+        }
     }
 
 	public function index()

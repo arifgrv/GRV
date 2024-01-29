@@ -10,6 +10,7 @@ class Login_Controller extends CI_Controller {
         $this->load->library('session');
         $this->load->library('seat_reservation');
         $this->load->model('login_model');
+
     }
 
 	public function login()

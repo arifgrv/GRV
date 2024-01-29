@@ -30,24 +30,22 @@
             </div>
 
             <div class="card-body">
-              <h5 class="card-title">General  Sales <span>Info</span></h5>
+              <h5 class="card-title">Payment Varification: <span>Info</span></h5>
 
               <table class="table table-borderless datatable">
                 <thead>
                   <tr>
                     <th scope="col">INV#</th>
-                    <th scope="col">Customer Name</th>
-                    <th scope="col">Mobile Number</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Booking Date</th>
                     <th scope="col">Show Information</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($AccountsReport as $key => $value): ?>
+                  <?php foreach ($UserTickInfo as $key => $value): ?>
                   <tr>
-                    <th scope="row"><a href="<?php echo base_url('index.php/reprint/'.$value['invoice_number'].'/1');?>" target="_blank"><?php echo $value['invoice_number'] ; ?></a></th>
-                    <td><?php echo $value['customer_name']; ?></td>
-                    <td><?php echo $value['customer_mobile']; ?></td>
+                    <th scope="row"><?php echo $value['invoice_number'] ; ?></th>
+                    <td><?php echo $value['comments']; ?></td>
                     <td><?php echo $value['reserve_date']; ?></td>
                     <td><?php echo $value['booking_date'].'-'.$value['movie_name'].'-'.$value['show_time']; ?></td>
                   </tr>  

@@ -101,28 +101,41 @@
         </div>
         <hr>
         <div class="item">
+            <div><b>Sit Number:</b></div>
+            <table>
+                <tr>
+                    <td>
+                        <?php 
+                        foreach ($InvoiceData as $key => $value) { 
+                           $tiket[]= $value['sit_number'];
+                         }; 
+
+                         echo implode(', ', $tiket);
+
+                         ?>
+                    </td>
+                </tr> 
+            </table>
+            <hr>
             <div><b>Details:</b></div>
             <table>
                 <tr>
-                    <th>SL#</th>
-                    <th>Seat No</th>
-                    <th>Unit Price</th>
+                    <td>Bill Amount:</td>
+                    <td><?php echo $InvoiceData[0]['total_bill'] ;?></td>
                 </tr>
-                <?php $totalAmount = 0; foreach ($InvoiceData as $key => $value) { 
-                        $this->load->model('Counter_model');
-                        $price=$this->Counter_model->getTicketPriceByRowName($value['sit_number']);
-                    ?>
-                    <tr>
-                        <td><?php echo ($key + 1); ?></td>
-                        <td><?php echo $value['sit_number']; ?></td>
-                        <td><?php echo $price['TicketPrice']; ?></td>
-                    </tr>
-                    <?php $totalAmount += $price['TicketPrice']; }; ?>
+                <tr>
+                    <td>Payble Amount:</td>
+                    <td><?php echo $InvoiceData[0]['received_amount'] ;?></td>
+                </tr>
+                <tr>
+                    <td>Discount Avail %</td>
+                    <td><?php $discount=((($InvoiceData[0]['total_bill']-$InvoiceData[0]['received_amount'])/$InvoiceData[0]['total_bill'])*100);echo number_format($discount, 2, '.', ',') ?></td>
+                </tr>
             </table>
             <hr>
         </div>
         <div class="item total-amount">
-            <div>Total Amount: BDT <?php echo number_format($totalAmount, 2, '.', ','); ?> Tk.</div>
+            <div>Total Amount: BDT <?php echo number_format($InvoiceData[0]['received_amount'] , 2, '.', ','); ?> Tk.</div>
         </div>
         <hr>
         <p class="item">[with Includes all ADM + ACM + VAT + Movie Tax + Hall Tax]</p>

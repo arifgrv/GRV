@@ -11,6 +11,7 @@ class SavaInformation_Controller extends CI_Controller {
         $this->load->library('seat_reservation');
         $this->load->library('invoice_generator');
         $this->load->model('savainformation_model');
+         $this->load->model('Counter_model');
     }
 
 	public function saveGeneral()
@@ -90,9 +91,7 @@ class SavaInformation_Controller extends CI_Controller {
                     $reservationdb=$this->savainformation_model->reservation($reservation);
          	    }
 
-                $data['reservation']=$reservation;
-                $data['customer']=$this->db->get_where('customer', array('customer_id'=> $customer_id))->row_array();
-                $data['accounts']=$accounts;
+                $data['InvoiceData']=$this->Counter_model->AccountsReport($invoice_number);
 
                 $this->load->view('counter/invoice',$data);
             }
@@ -182,11 +181,9 @@ class SavaInformation_Controller extends CI_Controller {
                     $reservationdb=$this->savainformation_model->reservation($reservation);
                 }
 
-                $data['reservation']=$this->db->get_where('reservation', array('invoice_number'=> $invoice_number))->result_array();
-                $data['customer']=$this->db->get_where('customer', array('customer_id'=> $customer_id))->row_array();
-                $data['accounts']=$accounts;
+                $data['InvoiceData']=$this->Counter_model->AccountsReport($invoice_number);
 
-                $this->load->view('counter/invoice',$data);
+                $this->load->view('counter/dinvoice',$data);
             }
         }else{
             redirect(base_url('index.php/counter')); 
@@ -194,13 +191,13 @@ class SavaInformation_Controller extends CI_Controller {
     }
 	// Custom validation rule to check at least one checkbox is checked
 	public function check_checkbox($checkboxes) {
-    if (empty($checkboxes)) {
-        $this->form_validation->set_message('check_checkbox', 'Please select at least one sit.');
-        return FALSE;
-    } else {
-        return TRUE;
+        if (empty($checkboxes)) {
+            $this->form_validation->set_message('check_checkbox', 'Please select at least one sit.');
+            return FALSE;
+        } else {
+            return TRUE;
+        }
     }
 
 
-}
 }

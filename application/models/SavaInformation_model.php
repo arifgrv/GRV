@@ -24,4 +24,7 @@ class SavaInformation_model extends CI_Model {
         $query = $this->db->get_where('customer', array('status'=> '1'))->result_array();
         return $query;
     }
+    
+
+
 }

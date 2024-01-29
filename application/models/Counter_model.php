@@ -95,25 +95,43 @@ class Counter_model extends CI_Model {
         }
     }
 
-    public function AccountsReport() {
-        $query = $this->db->select('acc.invoice_number, cus.full_name AS customer_name, cus.mobile AS customer_mobile, res.movie_name, res.show_time,res.reserve_date,res.booking_date')
-                      ->from('accounts AS acc')
-                      ->join('reservation AS res', 'acc.invoice_number = res.invoice_number')
-                      ->join('customer AS cus', 'res.customer_id = cus.customer_id')
-                      ->where('acc.invoice_number', '175')
-                      ->get();
+    public function AccountsReport($invo=null) {
+        if ($invo) {
+            $query = $this->db->select('acc.invoice_number,acc.total_bill,acc.received_amount,cus.full_name AS customer_name, cus.mobile AS customer_mobile, res.movie_name, res.show_time,res.reserve_date,res.booking_date,res.sit_number')
+              ->from('accounts AS acc')
+              ->join('reservation AS res', 'acc.invoice_number = res.invoice_number')
+              ->join('customer AS cus', 'res.customer_id = cus.customer_id')
+              ->where('acc.invoice_number', $invo)
+              ->get();
+        }else{
+            $query = $this->db->select('acc.invoice_number,acc.total_bill,acc.received_amount,cus.full_name AS customer_name, cus.mobile AS customer_mobile, res.movie_name, res.show_time,res.reserve_date,res.booking_date,res.sit_number')
+              ->from('accounts AS acc')
+              ->join('reservation AS res', 'acc.invoice_number = res.invoice_number')
+              ->join('customer AS cus', 'res.customer_id = cus.customer_id')
+              ->get();
+        }
+
 
         // Check if the query was successful
         if ($query) {
-            // Return the result as an array
             return $query->result_array();
         } else {
-            // Handle the error, e.g., log or display an error message
-            //log_message('error', 'AccountsReport query failed.');
             return false;
         }
     }
 
+    public function getTicketPriceByRowName($rowNamePrefix) {
+        $this->db->select('TicketPrice');
+        $this->db->from('sitcategory');
+        $this->db->like('rowname', substr($rowNamePrefix, 0, 1), 'after');
+        $query = $this->db->get();
+
+        if ($query) {
+            return $query->row_array();
+        } else {
+            return false;
+        }
+    }
 
 }
 ?>

@@ -62,7 +62,8 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`customer_id`, `full_name`, `email`, `mobile`, `password`, `account_type`, `status`, `comments`) VALUES
 (1, 'Counter 01', 'grvcc@grvh.com', '12345678912', '123456', 2, 1, 'admin-1 counter-2 user-3 active-1 deactive-2'),
-(2, 'Arifur Rahman', 'it.manager.arifbd@gmail.com', '01911946693', '123456', 3, 1, 'admin-1 counter-2 user-3 active-1 deactive-2');
+(2, 'Counter 01', 'grv@grvh.com', '12345678913', '123456', 3, 1, 'admin-1 counter-2 user-3 active-1 deactive-2'),
+(3, 'Arifur Rahman', 'it.manager.arifbd@gmail.com', '01911946693', '123456', 3, 1, 'admin-1 counter-2 user-3 active-1 deactive-2');
 
 -- --------------------------------------------------------
 

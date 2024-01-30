@@ -13,6 +13,8 @@ $route['login'] = 'Login_Controller/login';
 $route['is_logged_in'] = 'Login_Controller/is_logged_in';
 $route['LgoCheck'] = 'Login_Controller/LgoCheck';
 $route['logout'] = 'Login_Controller/logout';
+$route['RegSave'] = 'Login_Controller/RegSave';
+$route['newUser'] = 'Login_Controller/newUser';
 
 
 // admin controller
@@ -28,8 +30,6 @@ $route['reprint/(:any)/(:any)'] = 'Counter_Controller/reprint/$1/$1';
 
 //Customer Controller
 $route['customer'] = 'Customer_Controller/index';
-$route['RegSave'] = 'Customer_Controller/RegSave';
-$route['newUser'] = 'Customer_Controller/newUser';
 $route['UserBookTicket/(:any)'] = 'Customer_Controller/ticket_Search/$1';
 $route['UserSitPlan'] = 'Customer_Controller/SitPlan';
 $route['UserAccounts'] = 'Customer_Controller/AccountsReport';

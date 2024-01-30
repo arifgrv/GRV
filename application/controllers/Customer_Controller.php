@@ -21,47 +21,6 @@ class Customer_Controller extends CI_Controller {
         $this->load->view('customer/dashboard',$data);
 	}
 
-    public function newUser()
-    {
-        $this->load->view('customer/Registration');
-    }
-    
-    public function RegSave()
-    {
-        // MAKE RESERVATION
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-            // Set validation rules
-            $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]|max_length[50]');
-            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-            $this->form_validation->set_rules('mobile', 'Mobile', 'trim|required|exact_length[11]|numeric');
-            $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
-            $this->form_validation->set_rules('confirmPassword', 'Confirm Password', 'trim|required|matches[password]');
-
-            // Run form validation
-            if ($this->form_validation->run() == FALSE) {
-                // If validation fails, reload the form with validation errors
-                $this->load->view('customer/Registration');
-            } else {
-                
-                //save to DB
-                $data=array(
-                    'username'=>$_POST['username'],
-                    'email'=>$_POST['email'],
-                    'mobile'=>$_POST['mobile'],
-                    'password'=>$_POST['password'],
-                    'accstatus'=>'1',
-                    );
-                $result=$this->Login_model->RegSave($data);
-                if ($result) {
-                    $this->load->view('Login');
-                }
-            }
-        }else{
-            redirect(base_url('index.php/newUser')); 
-        }
-    }
-
 	public function is_logged_in() {
         if ($this->session->userdata('user_email') == null) {
         	redirect(base_url('index.php/login')); 

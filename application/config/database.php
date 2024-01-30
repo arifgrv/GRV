@@ -35,10 +35,10 @@ if ($domain === 'localhost' || $ip === '127.0.0.1') {
 }else{
 	$db['default'] = array(
 		'dsn'	=> '',
-		'hostname' => 'localhost',
-		'username' => 'root',	
-		'password' => '',	
-		'database' => '',	
+		'hostname' => 'sql310.ezyro.com',
+		'username' => 'ezyro_35883649',	
+		'password' => '935073dbda8766',	
+		'database' => 'o_35883649_cineplex',	
 		'dbdriver' => 'mysqli',
 		'dbprefix' => '',
 		'pconnect' => FALSE,

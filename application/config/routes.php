@@ -28,6 +28,8 @@ $route['reprint/(:any)/(:any)'] = 'Counter_Controller/reprint/$1/$1';
 
 //Customer Controller
 $route['customer'] = 'Customer_Controller/index';
+$route['RegSave'] = 'Customer_Controller/RegSave';
+$route['newUser'] = 'Customer_Controller/newUser';
 $route['UserBookTicket/(:any)'] = 'Customer_Controller/ticket_Search/$1';
 $route['UserSitPlan'] = 'Customer_Controller/SitPlan';
 $route['UserAccounts'] = 'Customer_Controller/AccountsReport';

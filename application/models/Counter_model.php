@@ -97,14 +97,14 @@ class Counter_model extends CI_Model {
 
     public function AccountsReport($invo=null) {
         if ($invo) {
-            $query = $this->db->select('acc.invoice_number,acc.total_bill,acc.received_amount,cus.full_name AS customer_name, cus.mobile AS customer_mobile, res.movie_name, res.show_time,res.reserve_date,res.booking_date,res.sit_number')
+            $query = $this->db->select('acc.invoice_number,acc.total_bill,acc.received_amount,acc.voucher_code,cus.full_name AS customer_name, cus.mobile AS customer_mobile, res.movie_name, res.show_time,res.reserve_date,res.booking_date,res.sit_number')
               ->from('accounts AS acc')
               ->join('reservation AS res', 'acc.invoice_number = res.invoice_number')
               ->join('customer AS cus', 'res.customer_id = cus.customer_id')
               ->where('acc.invoice_number', $invo)
               ->get();
         }else{
-            $query = $this->db->select('acc.invoice_number,acc.total_bill,acc.received_amount,cus.full_name AS customer_name, cus.mobile AS customer_mobile, res.movie_name, res.show_time,res.reserve_date,res.booking_date,res.sit_number')
+            $query = $this->db->select('acc.invoice_number,acc.total_bill,acc.received_amount,acc.voucher_code,cus.full_name AS customer_name, cus.mobile AS customer_mobile, res.movie_name, res.show_time,res.reserve_date,res.booking_date,res.sit_number')
               ->from('accounts AS acc')
               ->join('reservation AS res', 'acc.invoice_number = res.invoice_number')
               ->join('customer AS cus', 'res.customer_id = cus.customer_id')

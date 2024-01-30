@@ -126,11 +126,11 @@ class SavaInformation_Controller extends CI_Controller {
                 switch ($this->input->post('submitby')) {
                     case 'Online_General':
                         //$this->load->view('customer/invoice',$data);
-                        redirect(base_url('index.php/customer'));
+                        redirect(base_url('index.php/PaymentVerification'));
                         break;
                     case 'Online_Discount':
                         //$this->load->view('customer/dinvoice',$data);
-                        redirect(base_url('index.php/customer'));
+                        redirect(base_url('index.php/PaymentVerification'));
                         break;
                     case 'Counter_General':
                         $this->load->view('counter/invoice',$data);
@@ -179,12 +179,10 @@ class SavaInformation_Controller extends CI_Controller {
                 
                 switch ($this->input->post('submitby')) {
                     case 'Online_General':
-                        //$this->load->view('customer/sitplan',$data);
-                        redirect(base_url('index.php/customer'));
+                        $this->load->view('customer/sitplan',$data);
                         break;
                     case 'Online_Discount':
-                        //$this->load->view('customer/dsitplan',$data);
-                        redirect(base_url('index.php/customer'));
+                        $this->load->view('customer/dsitplan',$data);
                         break;
                     case 'Counter_General':
                         $this->load->view('counter/sitplan',$data);
@@ -267,10 +265,12 @@ class SavaInformation_Controller extends CI_Controller {
 
                 switch ($this->input->post('submitby')) {
                     case 'Online_General':
-                        $this->load->view('customer/invoice',$data);
+                        //$this->load->view('customer/invoice',$data);
+                        redirect(base_url('index.php/PaymentVerification'));
                         break;
                     case 'Online_Discount':
-                        $this->load->view('customer/dinvoice',$data);
+                        //$this->load->view('customer/dinvoice',$data);
+                        redirect(base_url('index.php/PaymentVerification'));
                         break;
                     case 'Counter_General':
                         $this->load->view('counter/invoice',$data);

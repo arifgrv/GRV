@@ -10,7 +10,7 @@ class SavaInformation_Controller extends CI_Controller {
         $this->load->library('session');
         $this->load->library('seat_reservation');
         $this->load->library('invoice_generator');
-        $this->load->model('savainformation_model');
+        $this->load->model('SavaInformation_model');
          $this->load->model('Counter_model');
     }
 
@@ -71,7 +71,7 @@ class SavaInformation_Controller extends CI_Controller {
                         'sales_type' => 'Counter', 
                     );
                     //accounts data
-                    $accountsdb=$this->savainformation_model->accounts($accounts);
+                    $accountsdb=$this->SavaInformation_model->accounts($accounts);
                 }elseif ($this->input->post('submitby')=='Online_General'){
                     $accounts = array(
                         'invoice_number' =>$invoice_number , 
@@ -84,7 +84,7 @@ class SavaInformation_Controller extends CI_Controller {
                         'comments' =>'Pending',
                     );
                     //accounts data
-                    $accountsdb=$this->savainformation_model->accounts($accounts);
+                    $accountsdb=$this->SavaInformation_model->accounts($accounts);
                 }
 
                 ///===============================================================
@@ -103,7 +103,7 @@ class SavaInformation_Controller extends CI_Controller {
                         'account_type'=>'4',
                         'status'=>'2',
                     );
-                    $customer_id=$this->savainformation_model->customer($customer);
+                    $customer_id=$this->SavaInformation_model->customer($customer);
                  }
 
                 ///===============================================================
@@ -118,7 +118,7 @@ class SavaInformation_Controller extends CI_Controller {
                         'booking_date' => date('Y-m-d'), 
                         'sit_number' => $seat, 
                     );
-                    $reservationdb=$this->savainformation_model->reservation($reservation);
+                    $reservationdb=$this->SavaInformation_model->reservation($reservation);
          	    }
 
                 $data['InvoiceData']=$this->Counter_model->AccountsReport($invoice_number);
@@ -211,7 +211,7 @@ class SavaInformation_Controller extends CI_Controller {
                         'sales_type' => 'Counter', 
                     );
                     //accounts data
-                    $accountsdb=$this->savainformation_model->accounts($accounts);
+                    $accountsdb=$this->SavaInformation_model->accounts($accounts);
                 }elseif ($this->input->post('submitby')=='Online_Discount'){
                     $accounts = array(
                         'invoice_number' =>$invoice_number , 
@@ -224,7 +224,7 @@ class SavaInformation_Controller extends CI_Controller {
                         'comments' =>'Pending',
                     );
                     //accounts data
-                    $accountsdb=$this->savainformation_model->accounts($accounts);
+                    $accountsdb=$this->SavaInformation_model->accounts($accounts);
                 }
 
                 ///===============================================================
@@ -243,7 +243,7 @@ class SavaInformation_Controller extends CI_Controller {
                         'account_type'=>'4',
                         'status'=>'2',
                     );
-                    $customer_id=$this->savainformation_model->customer($customer);
+                    $customer_id=$this->SavaInformation_model->customer($customer);
                  }
 
                 ///===============================================================
@@ -258,7 +258,7 @@ class SavaInformation_Controller extends CI_Controller {
                         'booking_date' => date('Y-m-d'), 
                         'sit_number' => $seat, 
                     );
-                    $reservationdb=$this->savainformation_model->reservation($reservation);
+                    $reservationdb=$this->SavaInformation_model->reservation($reservation);
                 }
 
                 $data['InvoiceData']=$this->Counter_model->AccountsReport($invoice_number);

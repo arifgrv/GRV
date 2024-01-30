@@ -104,7 +104,7 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-header">
-                                                    Business Galary: BDT-400Tk.
+                                                    Business Class: BDT-400Tk.
                                                 </div>
                                                 <div class="card-body">
                                                     <!-- A -->
@@ -161,7 +161,7 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-header">
-                                                    Economi: BDT-350Tk.
+                                                    Economy class: BDT-350Tk.
                                                 </div>
                                                 <div class="card-body">
                                                     <!-- J -->
@@ -238,7 +238,7 @@
         });
 
         // Display the total cost
-        document.getElementById('total_cost_show').innerText = 'Total Payble : BTD - ' + totalCost + 'Tk.';
+        document.getElementById('total_cost_show').innerText = 'Total Payable Amount : BTD - ' + totalCost + 'Tk.';
          document.getElementById('total_cost').value = totalCost;
     }
 

@@ -133,4 +133,10 @@ class Counter_Controller extends CI_Controller {
         }
     }
 
+    public function PaymentApproval(){
+        $data['PaymentStatus']=$this->Counter_model->PaymentVerify();
+        $this->load->view('counter/paymentverification',$data);
+    }
+
+
 }

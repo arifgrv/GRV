@@ -29,10 +29,10 @@
       </li><!-- End Components Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed" data-bs-target="#Payment-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Sales Reports</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="Payment-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="<?php echo base_url('index.php/Accounts'); ?>"  target="_blank">
               <i class="bi bi-circle"></i><span>Current Date</span>
@@ -45,6 +45,19 @@
           </li>
         </ul>
       </li><!-- End Tables Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="fa fa-credit-card" aria-hidden="true"></i><span>Online Payment Verification</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="<?php echo base_url('index.php/PaymentApproval'); ?>"  target="_blank">
+              <i class="bi bi-circle"></i><span>Payment Approval</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Payment Verification -->
 
       <hr>
 

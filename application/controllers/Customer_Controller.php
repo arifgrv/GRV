@@ -129,7 +129,8 @@ class Customer_Controller extends CI_Controller {
 
     public function PaymentVerification(){
         $result=$this->Customer_model->UserByEmail($this->session->userdata('user_email'));
-        $data['UserTickInfo']=$this->Customer_model->AccountsReportByCID($result['customer_id']);
+        $data['PendingTickes']=$this->Customer_model->PendingTickes($result['customer_id']);
+        $data['ApprovedTicket']=$this->Customer_model->ApprovedTicket($result['customer_id']);
         $this->load->view('customer/history',$data);
     }
 

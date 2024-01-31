@@ -31,32 +31,26 @@
 
             <div class="card-body">
               <h5 class="card-title">Payment Varification: <span>Info</span></h5>
+
               <table class="table table-borderless datatable">
                 <thead>
                   <tr>
                     <th scope="col">INV#</th>
                     <th scope="col">Status</th>
-                    <th scope="col">transaction_id</th>
-                    <th scope="col">Received Amount</th>
-                    <th scope="col">Payment Date</th>
-                    <th scope="col">Customer Info</th>
+                    <th scope="col">Booking Date</th>
                     <th scope="col">Show Information</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($PaymentStatus as $key => $value): ?>
+                  <?php foreach ($PendingTickes as $key => $value): ?>
                   <tr>
                     <th scope="row"><?php echo $value['invoice_number'] ; ?></th>
                     <td><?php echo $value['comments']; ?></td>
-                    <td><?php echo $value['transaction_id']; ?></td>
-                    <td><?php echo $value['received_amount']; ?></td>
-                    <td><?php echo $value['booking_date']; ?></td>
-                    <td><?php echo $value['customer_name'].'<br/>'.$value['customer_mobile']; ?></td>
+                    <td><?php echo $value['reserve_date']; ?></td>
                     <td><?php echo $value['booking_date'].'-'.$value['movie_name'].'-'.$value['show_time']; ?></td>
                     <td>
-                        <a href="<?php echo base_url('index.php/PayApprove/'.$value['invoice_number']); ?>"><button class="btn btn-success">Approve</button></a>
-                        <a href="<?php echo base_url('index.php/PayReject/'.$value['invoice_number']); ?>"><button class="btn btn-danger">Reject</button></a>
+                        |<a href="#"><i class="fa fa-print" aria-hidden="true"></i></a> | <a href="#"><i class="fa fa-pencil text-danger" aria-hidden="true"></i></a>|
                       </td>
                   </tr>  
                   <?php endforeach ?>
@@ -67,7 +61,6 @@
         </div><!-- End Recent Sales -->
       </div>
     </section>
-
   </main><!-- End #main -->
 
 <?php include 'footer.php';?>  

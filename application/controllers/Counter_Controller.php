@@ -138,5 +138,26 @@ class Counter_Controller extends CI_Controller {
         $this->load->view('counter/paymentverification',$data);
     }
 
+    public function PayApprove($invoice_number){
+        $data = array(
+            'comments' => 'Approved'
+        );
+
+        $this->db->where('invoice_number', $invoice_number);
+        $this->db->update('accounts', $data);
+        redirect(base_url('index.php/PaymentApproval'));
+        
+    }
+
+    public function PayReject($invoice_number){
+        $data = array(
+            'comments' => 'Denied'
+        );
+
+        $this->db->where('invoice_number', $invoice_number);
+        $this->db->update('accounts', $data);
+        redirect(base_url('index.php/PaymentApproval'));
+
+    }
 
 }

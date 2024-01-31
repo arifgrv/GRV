@@ -28,6 +28,8 @@ $route['SitPlan'] = 'Counter_Controller/SitPlan';
 $route['Accounts'] = 'Counter_Controller/AccountsReport';
 $route['reprint/(:any)/(:any)'] = 'Counter_Controller/reprint/$1/$1';
 $route['PaymentApproval'] = 'Counter_Controller/PaymentApproval';
+$route['PayApprove/(:any)'] = 'Counter_Controller/PayApprove/$1';
+$route['PayReject/(:any)'] = 'Counter_Controller/PayReject/$1';
 
 
 //Customer Controller

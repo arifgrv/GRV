@@ -38,7 +38,9 @@ $route['UserBookTicket/(:any)'] = 'Customer_Controller/ticket_Search/$1';
 $route['UserSitPlan'] = 'Customer_Controller/SitPlan';
 $route['UserAccounts'] = 'Customer_Controller/AccountsReport';
 $route['UserReprint/(:any)/(:any)'] = 'Customer_Controller/reprint/$1/$1';
-$route['PaymentVerification'] = 'Customer_Controller/PaymentVerification';
+$route['PendingTicket'] = 'Customer_Controller/PendingTicket';
+$route['ApprovedTicket'] = 'Customer_Controller/ApprovedTicket';
+$route['OnlineTicketprint/(:any)'] = 'Customer_Controller/OnlineTicketprint/$1';
 
 //sava data to DB
 $route['saveGeneral'] = 'SavaInformation_Controller/saveGeneral';

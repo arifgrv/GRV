@@ -30,7 +30,7 @@
             </div>
 
             <div class="card-body">
-              <h5 class="card-title">Payment Varification: <span>Info</span></h5>
+              <h5 class="card-title">Print Ticket: <span>Info</span></h5>
 
               <table class="table table-borderless datatable">
                 <thead>
@@ -43,14 +43,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($PendingTickes as $key => $value): ?>
+                  <?php foreach ($ApprovedTicket as $key => $value): ?>
                   <tr>
                     <th scope="row"><?php echo $value['invoice_number'] ; ?></th>
                     <td><?php echo $value['comments']; ?></td>
                     <td><?php echo $value['reserve_date']; ?></td>
                     <td><?php echo $value['booking_date'].'-'.$value['movie_name'].'-'.$value['show_time']; ?></td>
                     <td>
-                        |<a href="#"><i class="fa fa-print" aria-hidden="true"></i></a> | <a href="#"><i class="fa fa-pencil text-danger" aria-hidden="true"></i></a>|
+                        <a href="<?php echo base_url('index.php/OnlineTicketprint/'.$value['invoice_number'])  ; ?>"><button class="btn btn-success btn-big"><i class="fa fa-print" aria-hidden="true"></i> Print</button></a>
                       </td>
                   </tr>  
                   <?php endforeach ?>

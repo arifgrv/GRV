@@ -99,7 +99,7 @@
                 </tr>
                 <tr>
                     <td>bKash TrxID:</td>
-                    <td><?php echo $InvoiceData[0]['voucher_code']; ?></td>
+                    <td><?php echo $InvoiceData[0]['transaction_id']; ?></td>
                 </tr>
             </table>
         </div>

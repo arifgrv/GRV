@@ -34,12 +34,12 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="<?php echo base_url('index.php/PaymentVerification'); ?>"  target="_blank">
+            <a href="<?php echo base_url('index.php/PendingTicket'); ?>"  target="_blank">
               <i class="bi bi-circle"></i><span>Payment Verification Pending</span>
             </a>
           </li>
                     <li>
-            <a href="<?php echo base_url('index.php/PaymentVerification'); ?>"  target="_blank">
+            <a href="<?php echo base_url('index.php/ApprovedTicket'); ?>"  target="_blank">
               <i class="bi bi-circle"></i><span>Print Tickets</span>
             </a>
           </li>

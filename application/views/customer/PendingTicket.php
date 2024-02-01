@@ -39,7 +39,7 @@
                     <th scope="col">Status</th>
                     <th scope="col">Booking Date</th>
                     <th scope="col">Show Information</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Comments</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -50,7 +50,7 @@
                     <td><?php echo $value['reserve_date']; ?></td>
                     <td><?php echo $value['booking_date'].'-'.$value['movie_name'].'-'.$value['show_time']; ?></td>
                     <td>
-                        |<a href="#"><i class="fa fa-print" aria-hidden="true"></i></a> | <a href="#"><i class="fa fa-pencil text-danger" aria-hidden="true"></i></a>|
+                        Your payment verification is on our queue for the verification process. Once verified, you will be able to print your ticket from the 'Print Tickets' menu.
                       </td>
                   </tr>  
                   <?php endforeach ?>

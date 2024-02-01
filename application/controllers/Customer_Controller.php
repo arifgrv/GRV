@@ -127,11 +127,40 @@ class Customer_Controller extends CI_Controller {
         }
     }
 
-    public function PaymentVerification(){
+    public function OnlineTicketprint($invoice_number){
+        //Login Check
+        $this->is_logged_in();
+
+        $result=$this->Customer_model->OnlineTikPrint($invoice_number);
+        
+        if ($result[0]['received_amount']<$result[0]['total_bill']) {
+            $id=2;
+        }else{
+            $id=1;
+        }
+        switch ($id) {
+            case '2':
+                $data['InvoiceData']=$this->Counter_model->AccountsReport($invoice_number);
+                $this->load->view('customer/dinvoice',$data);
+                break;
+            default:
+                $data['InvoiceData']=$this->Counter_model->AccountsReport($invoice_number);
+                $this->load->view('customer/invoice',$data);
+                break;
+        }
+
+    }
+
+    public function PendingTicket(){
         $result=$this->Customer_model->UserByEmail($this->session->userdata('user_email'));
         $data['PendingTickes']=$this->Customer_model->PendingTickes($result['customer_id']);
+        $this->load->view('customer/PendingTicket',$data);
+    }
+
+    public function ApprovedTicket(){
+        $result=$this->Customer_model->UserByEmail($this->session->userdata('user_email'));
         $data['ApprovedTicket']=$this->Customer_model->ApprovedTicket($result['customer_id']);
-        $this->load->view('customer/history',$data);
+        $this->load->view('customer/ApprovedTicket',$data);
     }
 
 }

@@ -121,7 +121,7 @@ class SavaInformation_Controller extends CI_Controller {
                     $reservationdb=$this->SavaInformation_model->reservation($reservation);
          	    }
 
-                $data['InvoiceData']=$this->Counter_model->AccountsReport($invoice_number);
+                $data['InvoiceData']=$this->SavaInformation_model->TicketInformation($invoice_number);
 
                 switch ($this->input->post('submitby')) {
                     case 'Online_General':

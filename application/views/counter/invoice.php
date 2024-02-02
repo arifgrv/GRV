@@ -66,7 +66,6 @@
     </style>
     <title>GRV Cineplex Invoice</title>
 </head>
-
 <body>
     <div class="invoice">
         <div class="header">GRV Cineplex</div>

@@ -97,6 +97,10 @@
                     <td>Reservation:</td>
                     <td><?php echo $InvoiceData[0]['reserve_date'].' - '.$InvoiceData[0]['movie_name'].' - '.$InvoiceData[0]['show_time']; ?></td>
                 </tr>
+                <tr>
+                    <td>Voucher Code:</td>
+                    <td><?php echo $InvoiceData[0]['voucher_code']; ?></td>
+                </tr>
             </table>
         </div>
         <hr>

@@ -12,6 +12,7 @@ class Customer_Controller extends CI_Controller {
         $this->load->model('Counter_model');
         $this->load->model('home_model');
         $this->load->model('Customer_model');
+        $this->load->model('SavaInformation_model');
         $this->is_logged_in();
     }
 
@@ -131,7 +132,7 @@ class Customer_Controller extends CI_Controller {
         //Login Check
         $this->is_logged_in();
 
-        $result=$this->Customer_model->OnlineTikPrint($invoice_number);
+        $result=$this->SavaInformation_model->TicketInformation($invoice_number);;
         
         if ($result[0]['received_amount']<$result[0]['total_bill']) {
             $id=2;
@@ -140,11 +141,11 @@ class Customer_Controller extends CI_Controller {
         }
         switch ($id) {
             case '2':
-                $data['InvoiceData']=$this->Counter_model->AccountsReport($invoice_number);
+                $data['InvoiceData']=$this->SavaInformation_model->TicketInformation($invoice_number);
                 $this->load->view('customer/dinvoice',$data);
                 break;
             default:
-                $data['InvoiceData']=$this->Counter_model->AccountsReport($invoice_number);
+                $data['InvoiceData']=$this->SavaInformation_model->TicketInformation($invoice_number);
                 $this->load->view('customer/invoice',$data);
                 break;
         }

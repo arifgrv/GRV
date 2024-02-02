@@ -50,7 +50,7 @@
                     <td><?php echo $value['reserve_date']; ?></td>
                     <td><?php echo $value['booking_date'].'-'.$value['movie_name'].'-'.$value['show_time']; ?></td>
                     <td>
-                        Your payment verification is on our queue for the verification process. Once verified, you will be able to print your ticket from the 'Print Tickets' menu.
+                        Your payment verification is on our queue for the verification process. Generally, it will take 2 to 3 hours depending on the queue load. Once verified, you will be able to print your ticket from the 'Print Tickets' menu.
                       </td>
                   </tr>  
                   <?php endforeach ?>
